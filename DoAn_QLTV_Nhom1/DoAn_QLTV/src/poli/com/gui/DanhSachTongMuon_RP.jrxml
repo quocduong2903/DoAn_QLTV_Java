@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="600" pageHeight="450" columnWidth="560" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9edcc9af-e49c-485f-b060-70028d8d0273">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <parameter name="NguoiXuatDon" class="java.lang.String"/>
+    <queryString>
+        <![CDATA[EXEC ThongKePhieuMuonTrongTuan;]]>
+    </queryString>
+    <field name="MaMT" class="java.lang.String"/>
+    <field name="SoThe" class="java.lang.String"/>
+    <field name="MaNV" class="java.lang.String"/>
+    <field name="NgayMuon" class="java.sql.Date"/>
+    <field name="NgayHenTra" class="java.sql.Date"/>
+    <field name="TinhTrang" class="java.lang.String"/>
+    <variable name="NAME" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="80" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="560" height="32" uuid="683c0f87-e269-4212-837d-73f48445dfc5"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Microsoft Sans Serif" size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[THƯ VIỆN TRƯỜNG ĐẠI HỌC CÔNG THƯƠNG TP.HCM]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="32" width="560" height="35" uuid="701a7607-df78-44dc-8ffb-b7f6121a9186"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Microsoft Sans Serif" size="15" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Danh Sách Mượn Trả Trong Tuần]]></text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="70" width="560" height="1" uuid="f82bfa87-6e6c-4a4e-9f43-234cb850d5b8"/>
+            </line>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="32" splitType="Stretch">
+            <textField pattern="dd/MM/yyyy h:mm a">
+                <reportElement x="187" y="0" width="149" height="22" uuid="0c5e25a3-dc81-4322-9fe1-dc84b2c4d954"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <staticText>
+                <reportElement x="10" y="0" width="94" height="20" uuid="b8c4c025-0647-4ef3-8d58-ea10f2e0fef0" backcolor="#D3D3D3" mode="Opaque"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Mã Mượn Trả]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="104" y="0" width="63" height="20" uuid="c2b77931-30ab-4239-9967-10d8b1c6776d" backcolor="#D3D3D3" mode="Opaque"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Số Thẻ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="167" y="0" width="96" height="20" uuid="9f3234fd-f316-41b1-9d20-667fd15fcba3" backcolor="#D3D3D3" mode="Opaque"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Mã Nhân Viên]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="263" y="0" width="90" height="20" uuid="d3ca57bf-f686-4997-aa2f-5905a06aa241" backcolor="#D3D3D3" mode="Opaque"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Ngày Mượn]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="353" y="0" width="92" height="20" uuid="c75b1680-4f68-408c-a4cf-2a1738a67407" backcolor="#D3D3D3" mode="Opaque"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Ngày Hẹn Trả]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="445" y="0" width="82" height="20" uuid="57c2b86b-5198-428b-8687-f818951aa7c8" backcolor="#D3D3D3" mode="Opaque"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tình Trạng]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="28" splitType="Stretch">
+            <textField>
+                <reportElement x="10" y="0" width="94" height="20" uuid="3e3501b2-8986-4083-bc2f-41996e82cb75"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{MaMT}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="104" y="0" width="65" height="20" uuid="4e4f1b82-6d8a-4099-b3ba-d51987bfaf1a"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{SoThe}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="167" y="0" width="96" height="20" uuid="ce68cf4f-4329-45ec-8baa-f9ff6e8a63ae"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{MaNV}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="263" y="0" width="90" height="20" uuid="bba2ae09-58f2-4eee-8919-7e54c2e522f3"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{NgayMuon}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="353" y="0" width="92" height="20" uuid="8aacaf70-9282-43c6-b5ac-ad71ec139e6a"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{NgayHenTra}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="445" y="0" width="82" height="20" uuid="d8e74566-757c-41d0-b1d0-5bc3d5df285d"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{TinhTrang}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="10" y="20" width="517" height="1" uuid="3442ee3c-4019-4dd9-b51e-8dc93bd8f71c"/>
+            </line>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="10" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement x="403" y="0" width="80" height="20" uuid="bba29ef8-f831-4d53-a459-10787611ae09"/>
+                <textElement textAlignment="Right">
+                    <font fontName="Microsoft Sans Serif" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement x="483" y="0" width="40" height="20" uuid="0164a0b2-cf04-4220-8ddf-2194b923a1af"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="26" y="0" width="141" height="20" uuid="5104421e-3264-4833-a352-c59bb9578470"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Người Xuất Đơn :]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="154" y="0" width="130" height="20" uuid="c32fe1c0-4906-4146-a315-b9de2c33efb7"/>
+                <textElement>
+                    <font fontName="Microsoft Sans Serif" size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{NguoiXuatDon}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>
